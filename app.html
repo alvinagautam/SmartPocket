@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartPocket</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="app.css">
+</head>
+<body>
+
+    <header class="topbar">
+        <div class="logo">
+            <i class="fa-solid fa-piggy-bank"></i>
+            SmartPocket
+        </div>
+        <div class="top-actions">
+            <button class="theme-btn" id="themeBtn">
+                <i class="fa-solid fa-moon"></i>
+                <span>Theme</span>
+            </button>
+            
+            <a href="index.html" class="home-btn">
+                <i class="fa-solid fa-house"></i>
+                Home
+            </a>
+        </div>
+    </header>
+
+    <div class="app">
+        
+        <section class="stats">
+            <div class="stat-card income">
+                <p>Total Income</p>
+                <h2 id="totalIncome">₹0</h2>
+            </div>
+            <div class="stat-card expense">
+                <p>Total Expense</p>
+                <h2 id="totalExpense">₹0</h2>
+            </div>
+            <div class="stat-card balance">
+                <p>Balance</p>
+                <h2 id="balance">₹0</h2>
+            </div>
+        </section>
+
+        
+        <section class="grid">
+            
+            <div class="box">
+                <h3>
+                    <i class="fa-solid fa-plus-circle"></i>
+                    Add Transaction
+                </h3>
+
+                <div class="toggle">
+                    <button class="toggle-btn" data-type="income">
+                        <i class="fa-solid fa-plus"></i>
+                            Income
+                    </button>
+                    <button class="toggle-btn active" data-type="expense">
+                        <i class="fa-solid fa-minus"></i>
+                            Expense
+                    </button>
+                </div>
+                <form id="transactionForm">
+                    <input 
+                        type="number" 
+                        id="amount" 
+                        placeholder="Amount (₹)" 
+                        step="any"
+                        min="0"
+                        required
+                    >
+
+                    <select id="category" required>
+                        <option value="">Select Category</option>
+                    </select>
+
+                    <input 
+                        type="text" 
+                        id="description" 
+                        placeholder="Description" 
+                        required
+                    >
+
+                    <input 
+                        type="date" 
+                        id="date" 
+                        required
+                    >
+
+                    <button type="submit" class="add-btn">
+                        <i class="fa-solid fa-check"></i>
+                        Add Transaction
+                    </button>
+                </form>
+            </div>
+
+            
+            <div class="box">
+                <h3>
+                    <i class="fa-solid fa-history"></i>
+                    Transaction History
+                </h3>
+
+                <div class="filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="today">Today</button>
+                    <button class="filter-btn" data-filter="week">Week</button>
+
+                    <div class="month-selector">
+                        <button class="month-nav-btn" id="prevMonth">
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </button>
+
+                        <div class="current-month">
+                            <i class="fa-solid fa-calendar"></i>
+                            <h2 id="monthDisplay">January 2026</h2>
+                        </div>
+
+                        <button class="month-nav-btn" id="nextMonth">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                    </div>
+
+                    <button class="clear-btn" id="clearMonthBtn">
+                        <i class="fa-solid fa-trash"></i>
+                        Clear
+                    </button>
+                </div>
+
+                <div id="transactionsList" class="transactions-list">
+                    
+                    <div class="empty" id="emptyState">
+                        <i class="fa-solid fa-receipt"></i>
+                        <p>No transactions this month</p>
+                        <small>Add your first transaction for this month!</small>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </section>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
